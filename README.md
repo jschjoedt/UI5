@@ -1,2 +1,4 @@
 # UI5
-UI5 apps
+Repository for UI5 apps.
+
+Do it!
