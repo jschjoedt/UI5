@@ -1,0 +1,18 @@
+{
+  "run": [
+    {
+      "filePath": "/ZFEH_MONITOR/index.html",
+      "previewMode": 0,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "_metadata": {
+        "runnerId": "webapprunner",
+        "id": 6739173,
+        "displayName": "New Web Application"
+      }
+    }
+  ]
+}

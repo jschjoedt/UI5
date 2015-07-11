@@ -1,0 +1,75 @@
+<mvc:View controllerName="FEHMonitor.view.Detail" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page id="detailPage" navButtonPress="onNavBack" showNavButton="{device&gt;/isPhone}" title="{i18n&gt;detailTitle}">
+		<content>
+			<ObjectHeader iconActive="false" id="detailHeader" introActive="false" number="{MainObjkey}" numberUnit="{OrderId}"
+				title="Detailed information for selected order" titleActive="false">
+				<attributes id="detailAttributes">
+					<ObjectAttribute active="false" id="attribute" text="Order created by: {UserCreate}"></ObjectAttribute>
+				</attributes>
+			</ObjectHeader>
+			<IconTabBar expandable="false" id="idIconTabBar" keys="all" select="handleIconTabBarSelect">
+				<items id="detailsItems">
+					<IconTabFilter icon="sap-icon://hint" id="iconTabFilterDetails" text="Order details">
+						<content>
+							<f:SimpleForm columnsL="1" editable="false" emptySpanL="4" emptySpanM="4" id="iconTabFilter1form" labelSpanL="3" labelSpanM="3"
+								layout="ResponsiveGridLayout" minWidth="1024">
+								<f:content>
+									<Label id="labelOrderId" text="Order Id"/>
+									<Text id="textOrderId" maxLines="0" text="{OrderId}"/>
+									<Label id="labelComponent" text="Component"/>
+									<Text id="textComponent" maxLines="0" text="{Component}"/>
+									<Label id="labelBusinessProcess" text="Business Process"/>
+									<Text id="textBusinessProcess" maxLines="0" text="{BusinessProcess}"/>
+									<Label id="labelObjectType" text="Object Type"/>
+									<Text id="textObjectType" maxLines="0" text="{MainObjtype}"/>
+									<Label id="labelObjectKey" text="Object Key"/>
+									<Text id="textObjectKey" maxLines="0" text="{MainObjkey}"/>
+									<Label id="labelProcessor" text="Processor"/>
+									<Text id="textProcessor" maxLines="0" text="{Processor}"/>
+									<Label id="labelWorklist" text="Worklist"/>
+									<Text id="textTimestamp" maxLines="0" text="{Worklist}"/>
+									<Label id="labelErrorCategory" text="Error Category"/>
+									<Text id="textErrorCategory" maxLines="0" text="{ErrorCategory}"/>
+									<Label id="labelUserCreate" text="User Create"/>
+									<Text id="textUserCreate" maxLines="0" text="{UserCreate}"/>
+									<Label id="labelCreationDate" text="Creation Date"/>
+									<Text id="textCreationDate" maxLines="0" text="{CreationDate}"/>
+									<Label id="labelCreationTime" text="Creation Time"/>
+									<Text id="textCreationTime" maxLines="0" text="{CreationTime}"/>
+									<core:ExtensionPoint name="extIconTabFilterForm1"/>
+								</f:content>
+							</f:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter count="" icon="sap-icon://list" iconColor="Default" id="iconTabFilterErrorHistory" key="ErrorHistory" text="Error History">
+						<content>
+							<List id="ListErrorHistory" items="{/d/results/}">
+								<items>
+									<StandardListItem description="{message}" icon="sap-icon://message-error" title="{message}" type="Inactive"/>
+								</items>
+							</List>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://attachment-html" iconColor="Default" id="iconTabFilterPayload" key="" text="Payload">
+						<content>
+							<TextArea cols="20" editable="false" height="100%" id="TextAreaPayload" rows="30" value="" width="100%" wrapping="Hard"></TextArea>
+						</content>
+					</IconTabFilter>
+					<core:ExtensionPoint name="extIconTabFilter"/>
+				</items>
+			</IconTabBar>
+			<core:ExtensionPoint name="extDetail"/>
+		</content>
+		<footer id="detailFooter">
+			<Toolbar id="detailToolbar">
+				<content>
+					<ToolbarSpacer id="toolbarSpacer"></ToolbarSpacer>
+					<Button icon="sap-icon://refresh" id="retryButton" press="onRetry" text="Retry"/>
+					<Button icon="sap-icon://sys-cancel" id="failButton" press="onFail" text="Fail"/>
+					<Button icon="sap-icon://accept" id="confirmButton" press="onConfirm" text="Confirm"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
